@@ -6,3 +6,9 @@ __pycache__/
 
 large_git_objects.txt
 tracked_files.txt
+# VS Code settings
+.vscode/
+
+# Operating system files
+.DS_Store
+Thumbs.db

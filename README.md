@@ -29,18 +29,39 @@ The solution helps maintenance teams make informed decisions and schedule repair
 
 ---
 
-## Tools and Libraries
+## Technologies Used
 
 * Python
+* Streamlit
 * Pandas
 * NumPy
 * Scikit-learn
+* Random Forest Classifier
+* Joblib
 * Matplotlib
-* Imbalanced-learn
+* Imbalanced-learn (SMOTE)
 * Jupyter Notebook
-
 ---
+## Machine Learning Model
 
+### Random Forest Classifier
+
+The predictive maintenance system uses a **Random Forest Classifier** to predict whether a machine is likely to fail.
+
+Why Random Forest?
+
+- Handles complex relationships between sensor features.
+- Works well with non-linear data.
+- Reduces overfitting by combining multiple decision trees.
+- Provides strong performance on classification tasks.
+
+The trained model is saved as:
+
+```text
+outputs/best_random_forest_model.pkl 
+```
+
+The Streamlit application (`app.py`) loads this model and performs real-time predictions based on user inputs.
 ## Dataset Information
 
 The dataset contains operational measurements collected from industrial machines. These measurements are used to determine whether a machine is operating normally or approaching a failure condition.
@@ -103,18 +124,21 @@ The model is assessed using:
 ## Project Directory Structure
 
 ```text
-DSML-Project/
+DSML/
+│
+├── app.py
+├── README.md
+├── requirements.txt
+├── .gitignore
 │
 ├── data/
-├── notebooks/
-├── source_code/
-├── outputs/
-├── trained_models/
-├── README.md
-└── requirements.txt
+│
+├── Notebooks/
+│   └── eda.ipynb
+│
+└── outputs/
+    └── best_random_forest_model.pkl
 ```
-
----
 
 ## Setup Instructions
 
@@ -143,6 +167,21 @@ jupyter notebook
 ```
 
 ---
+## Usage
+
+Run the Streamlit application:
+
+```bash
+streamlit run app.py
+```
+
+Open your browser and navigate to:
+
+```text
+http://localhost:8501
+```
+
+Enter the machine parameters in the sidebar or input fields and click the prediction button to determine whether the machine is likely to fail. 
 
 ## Outcomes
 
